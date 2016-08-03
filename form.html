@@ -1,0 +1,141 @@
+<form action="{path-gis_reg_process}" method="POST" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent;">
+<table class="sighnup-form-table" style="background-color: transparent;">
+    <tr>
+    <td class="input-name">{name} <span class="required">*</span></td>
+    <td><input id="first_name" class="input" type="text" maxlength="50" name="first_name" 
+      required 
+      oninvalid="this.setCustomValidity('Ingresa tu nombre')" 
+      oninput="setCustomValidity('')">
+    </td>
+  </tr>
+  <tr>
+    <td class="input-name">{surname} <span class="required">*</span></td>
+    <td><input id="last_name" class="input" type="text" name="last_name" maxlength="50"
+      required 
+      oninvalid="this.setCustomValidity('Ingresa tu apellido')" 
+      oninput="setCustomValidity('')"> 
+    </td>
+  </tr>
+  <tr>
+    <td class="input-name">{e-mail} <span class="required">*</span></td>
+    <td> <input id="email" class="input" type="text" name="email" maxlength="50"
+      required 
+      oninvalid="this.setCustomValidity('Please input valid e-mail')" 
+      oninput="setCustomValidity('')" 
+      pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$">
+    </td>
+  </tr>
+  <tr>
+    <td class="input-name">{password}<span class="required">*</span></td> 
+    <td><input id="password" class="input" type="password" name="password" 
+      required 
+      oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caractéres')" 
+      oninput="setCustomValidity('')"
+      pattern=".{8,}"> 
+    </td>
+  </tr>
+    <tr>
+    <td class="input-name">{phone} <span class="required">*</span></td>
+    <td> <input id="phone" class="input" type="text" name="phone" maxlength="50"
+      required 
+      oninvalid="this.setCustomValidity('Ingresa un número telfónico valido')" 
+      oninput="setCustomValidity('')" 
+      pattern="\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})">
+    </td>
+  </tr>
+  <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+    <tr>
+    <td class="input-name">{source} <span class="required">*</span></td>
+    <td> 
+      <select id="source" name="source" title="{source}">
+       <option disabled selected value>Selecciona una opción</option>
+               <option value="1" style="background-color:black;">Publicidad en Facebook</option>
+               <option value="2" style="background-color:black;">Página de Facebook</option>
+               <option value="3" style="background-color:black;">Sitio web</option>
+               <option value="4" style="background-color:black;">Twitter</option>
+               <option value="5" style="background-color:black;">Instagram</option>
+               <option value="6" style="background-color:black;">LinkedIn</option>
+               <option value="7" style="background-color:black;">Amigos ó Familia</option>
+               <option value="8" style="background-color:black;">Soy Miembro de AIESEC</option>
+               <option value="9" style="background-color:black;">Publicidad en Universidad</option>
+               <option value="10" style="background-color:black;">Stand en Universidad</option>
+               <option value="11" style="background-color:black;">Evento</option>
+               <option value="12" style="background-color:black;">Radio y Televisión</option>
+               <option value="13" style="background-color:black;">Alumni</option>
+               <option value="14" style="background-color:black;">Publicación en Medios</option>
+      </select>
+            
+    </td>
+  </tr>
+   <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+    <tr>
+    <td class="input-name">{interested_in} <span class="required">*</span></td>
+    <td> 
+      <select id="interested_in" name="interested_in" title="{source}">
+       <option disabled selected value>Selecciona una opción</option>
+               <option value="1" style="background-color:black;">Voluntario Internacional</option>
+               <option value="2" style="background-color:black;">Practicante Internacional</option>
+               
+      </select>
+            
+    </td>
+  </tr>
+
+  <tr>
+    <td class="input-name">{lead-name} <span class="required">*</span></td>
+    <td> 
+      <select id="university" name="university" title="{lead-name}">
+          {leads-option-list}
+
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="input-name">{lc} </td> 
+    <td><input class="readonly" id="localcommittee" name="localcommittee" title="{lc}" type="text" readonly />
+    </td>
+  </tr>
+  <tr>
+  <td class="check-holder">
+
+<input checked="" id="terms" type="checkbox"><label for="terms">
+<span class="required">
+He leido y acepto los 
+<a href="https://opportunities.aiesec.org/assets/terms.pdf" target="_blank"> terminos y condiciones.</a>
+</span>
+</label>
+</td>
+<td/>
+</tr>
+  <tr>
+            <input type="hidden" name="website_url" value="{website_url}">
+      </table>
+    <div id="error" class="error"><p></p></div>
+
+    <div id="submit">
+
+
+
+
+
+        <input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="Regístrate">
+    </div>
+</form>
+
+<script type='text/javascript' src='{path-gis_lcMapper}'></script>
+<script type='text/javascript'>
+//var $j = jQuery.noConflict();
+jQuery(document).ready(function($){
+    var myJsonString = getLeads('{path-leads-json}');
+    //jQuery(".regform").validationEngine();
+    jQuery('#university').change(function($) {
+    //    $('#localcommittee').val((mapLC($('#university').val())));
+        jQuery('#localcommittee').val(mapLC(jQuery('#university').val()));
+    });
+    
+    jQuery('#submit_button').click(function($){
+        jQuery('#submit_button').attr('clicked', 'true');
+
+    });
+});
+</script>
