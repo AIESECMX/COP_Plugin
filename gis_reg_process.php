@@ -243,23 +243,28 @@ $innerHTML = str_replace(array('"', "'"), '', $innerHTML);
 
 
 
-
-/*END UNCOMMENT BLOCK */
+/*END UNCOMMENT BLOCK 
 if ($innerHTML !== ''){
     $website_url = $_POST['website_url'];
     if(strpos($website_url, '?')!=null){
-        header("Location: ".$website_url."&error=".$innerHTML);
+        header("Location: http://aiesec.org.mx/registro/&error=".$innerHTML);
     } else {
-        header("Location: ".$website_url."?error=".$innerHTML);
+        header("Location: http://aiesec.org.mx/registro/?error=".$innerHTML);
     }
 }else {
     $website_url = $_POST['website_url'];
     if(strpos($website_url, '?')!=null){
-        header("Location: ".$website_url."&thank_you=true");
+        header("Location: http://aiesec.org.mx/registro/&thank_you=true");
     } else {
-        header("Location: ".$website_url."?thank_you=true");
+        header("Location: http://aiesec.org.mx/registro/?thank_you=true");
     }
 }
+*/
+
+ header("Location: http://aiesec.org.mx/registro/?thank_you=true");
+
+
+
 
 
 function curl_errors($ch)

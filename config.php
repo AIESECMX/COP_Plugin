@@ -8,10 +8,10 @@ return array(
     'password' => 'Contraseña',
     'phone' => 'Teléfono',
     'interested_in' => 'Programa de Interés',
-    'source' => 'Donde te enteraste',
-    'lead-name' => 'Donde estudio/vivo',
-    'lc' => 'Comité Local',
-    'thank-you-message' => 'Than you very much for registration. Soon you will recive e-mail with description of next steps.',
+    'source' => 'Dónde te enteraste',
+    'lead-name' => 'Selecciona tu universidad o estado',
+    'lc' => 'Entidad Local',
+    'thank-you-message' => 'Muchas gracias por tu registro, pronto recibiras un correo electónico. E inicia sesion en nuestra  <a href="https://opportunities.aiesec.org/" target="_blank"> plataforma.</a>',
     'country_name' => 'Mexico',
     'mc_id' => '1589'
 );
