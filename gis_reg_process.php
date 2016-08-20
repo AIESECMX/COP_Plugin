@@ -6,6 +6,8 @@ include_once '/lib/podio-php-4.3.0/PodioAPI.php';
 // This is to test the conection with the podio API and the authentication
 Podio::setup('aiesec-mexico', 'H1m3TpwjqotvYxwJzTcXtNJVnPJP47UE6B825iOnS2VzEsmlHd9222c3yUcOGWZi');
 
+//Podio::setup('test-aiesec-mexico', 'tbHvnd6k8MB2MMRCsqSVzL0FBbkshZorIt6izgtGsfDRY53FQBb9iRckDIgSgxLJ');
+
 //getting the podio Id for each lc
 $lc_podio = 'lc_podio.json';
 $json_podio_lc = file_get_contents($lc_podio, false, stream_context_create($arrContextOptions)); 
@@ -19,30 +21,49 @@ $uni_podio_map = json_decode($json_podio_uni,true);
 $user_uni_podio = $uni_podio_map[$_POST['university']];
 
 
+$program = intval($_POST['interested_in']);
+$podio_id = 1;
+
 try {
-  Podio::authenticate_with_app(16144547, 'dfbd22ffea04489f9973181241afd4bd');
+//GENERAL
+  //Podio::authenticate_with_app(16144547, 'dfbd22ffea04489f9973181241afd4bd');
+
+//OGV
+ if ($program == 1){
+    Podio::authenticate_with_app(16460504, 'db35069c26694b8cb2d2a17eda7fa94a');
+    $podio_id = 16460504;
+  }
+//OGT
+  else {
+    Podio::authenticate_with_app(16452042, 'c953eaeb05e246d1b465b9d1408ff81f');
+  $podio_id = 16452042;
+  }
+    
 
 
 
+//OGt
 $fields = new PodioItemFieldCollection(array(
-  new PodioTextItemField(array("external_id" => "name", "values" => ($_POST['first_name'] ." ". $_POST['last_name']) )),
-  new PodioTextItemField(array("external_id" => "email-2", "values" => $_POST['email'])),
-  new PodioTextItemField(array("external_id" => "phone-2", "values" => $_POST['phone'])),
+  new PodioTextItemField(array("external_id" => "titulo", "values" => ($_POST['first_name'] ) )),
+  new PodioTextItemField(array("external_id" => "apellido", "values" => $_POST['last_name'])),
+  new PodioTextItemField(array("external_id" => "correo", "values" => $_POST['email'])),
+  new PodioTextItemField(array("external_id" => "numero-telefonico", "values" => $_POST['phone'])),
 
-    new PodioCategoryItemField(array("external_id" => "host-lc-2", "values" => intval($user_lc_podio))),
-    new PodioCategoryItemField(array("external_id" => "practica-de-interes", "values" => intval($_POST['interested_in']))),
-    new PodioCategoryItemField(array("external_id" => "universidad", "values" => intval($user_uni_podio))),
+    new PodioCategoryItemField(array("external_id" => "comite-local", "values" => intval($user_lc_podio))),
+    new PodioCategoryItemField(array("external_id" => "institutouniversidad", "values" => intval($user_uni_podio))),
 new PodioCategoryItemField(array("external_id" => "fuente", "values" => intval($_POST['source'])))
-
-
-
-
 ));
+
+
+
+
+
+
 
 // Create the item object with fields
 // Be sure to add an app or podio-php won't know where to create the item
 $item = new PodioItem(array(
-  'app' => new PodioApp(16144547), // Attach to app with app_id=123
+  'app' => new PodioApp($podio_id), // Attach to app with app_id=123
   'fields' => $fields
 ));
 
@@ -56,6 +77,43 @@ catch (PodioError $e) {
     echo $e;
 }
 
+
+
+////////////////GET RESPONSE 
+/**
+*FOR GET RESPONSE 
+*
+*
+*/
+
+
+
+//AUTHENTICATION
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,"https://api.getresponse.com/v3/accounts");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'X-Auth-Token: api-key edd91283845856ad6863a3ee76a421c9'
+    ));
+
+echo curl_exec ($ch);
+
+curl_close ($ch);
+//AUTHENTICATION
+
+
+
+var_dump($result);
+
+
+///////////////GET RESPONSE ENDS
+
+
+
 function is_iterable($var)
 {
     return $var !== null 
@@ -66,7 +124,6 @@ function is_iterable($var)
             );
 }
 
-//header('Content-Type: text/html; charset=utf-8');
 /**
 * AIESEC GIS Form Submission via cURL
 * 
@@ -163,6 +220,7 @@ $fields = array(
     'user[first_name]' => htmlspecialchars($_POST['first_name']),
     'user[last_name]' => htmlspecialchars($_POST['last_name']),
     'user[password]' => htmlspecialchars($_POST['password']),
+    'user[phone]' => htmlspecialchars($_POST['phone']),
     'user[country]' => $configs["country_name"], //'POLAND', // EXAMPLE: 'GERMANY' 
     'user[mc]' => $configs["mc_id"], //'1626', // EXAMPLE: 1596
     'user[lc_input]' => $user_lc,

@@ -1,0 +1,192 @@
+
+<body >
+<link rel="stylesheet" href="http://auditores.arguilea.net/View/js/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div class="col-lg-12 col-sm-10 col-xs-10 " background="OGT-FinalNoTT.png">
+  <form action="{path-gis_reg_process}" method="POST" class="regform" id="expa_reg_form" accept-charset="UTF-8" style="background-color: transparent; width:75%; margin-left:10%;">
+  <table class="sighnup-form-table" style="background-color: rgba(10, 142, 160, 0.75);    border-radius: 7px;">
+      <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
+      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; padding-right: 2%; width:30%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Nombre</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+      <td style="width:70%;">
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Nombre o Nombres">
+      <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"  id="first_name" class="input" type="text" maxlength="50" name="first_name"
+        required
+        oninvalid="this.setCustomValidity('Ingresa tu nombre')"
+        oninput="setCustomValidity('')">
+        </label>
+      </td>
+    </tr>
+    
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; padding-right: 2%; width:30%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Apellidos</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td style="width:66%;">
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Apellido paterno y materno completos">
+      <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"  id="last_name" class="input" type="text" name="last_name" maxlength="50"
+        required
+        oninvalid="this.setCustomValidity('Ingresa tu apellido')"
+        oninput="setCustomValidity('')">
+        </label>
+      </td>
+    </tr>
+    
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">E-mail</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td style="color:white;"> 
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Este correo es el que te permitirá entrar a nuestro portal de oportunidades">
+      <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"  id="email" class="input" type="text" name="email" maxlength="50"
+        required
+        oninvalid="this.setCustomValidity('Please input valid e-mail')"
+        oninput="setCustomValidity('')"
+        pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$">
+        </label>
+      </td>
+    </tr>
+    
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Contraseña</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+      <td style="width:66%;color:white;">
+      <span  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Esta será tu contraseña para el acceso a nuestro portal de oportunidades.">
+      <input style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"  id="password" class="input" type="password" name="password"
+        required
+        oninvalid="this.setCustomValidity('La contraseña debe tener al menos 8 caractéres')"
+        oninput="setCustomValidity('')"
+        pattern=".{8,}">
+        </span>
+      </td>
+    </tr>
+    
+      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%; padding-right: 2%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Número Telefónico</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+      <td> 
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Número de teléfono o celular">
+      <input  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"  id="phone" class="input" type="text" name="phone" maxlength="50"
+        required
+        oninvalid="this.setCustomValidity('Ingresa un número telefónico valido')"
+        oninput="setCustomValidity('')"
+        pattern="\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})">
+        </label>
+      </td>
+    </tr>
+    
+    <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Canal</h6> <span class="required" style="color:#FFF !important;">*</span></td>
+      <td>
+
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Medio por el cual te enteraste de este programa">
+        <select id="source" name="source" title="Medio por el cual te enteraste de este programa"  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 95%;border-radius: 5px;"  >
+         <option disabled selected value>Selecciona una opción</option>
+                 <option value="1" style="background-color: #fff;">Publicidad en Facebook</option>
+                 <option value="2" style="background-color: #fff;">Página de Facebook</option>
+                 <option value="3" style="background-color: #fff;">Sitio web</option>
+                 <option value="4" style="background-color: #fff;">Twitter</option>
+                 <option value="5" style="background-color: #fff;">Instagram</option>
+                 <option value="6" style="background-color: #fff;">LinkedIn</option>
+                 <option value="8" style="background-color: #fff;">Amigos ó Familia</option>
+                 <option value="9" style="background-color: #fff;">Soy Miembro de AIESEC</option>
+                 <option value="10" style="background-color: #fff;">Publicidad en Universidad</option>
+                 <option value="11" style="background-color: #fff;">Stand en Universidad</option>
+                 <option value="12" style="background-color: #fff;">Evento</option>
+                 <option value="13" style="background-color: #fff;">Radio y Televisión</option>
+                 <option value="14" style="background-color: #fff;">Alumni</option>
+                 <option value="15" style="background-color: #fff;">Publicación en Medios</option>
+        </select>
+        </label>
+      </td>
+    </tr>
+    
+     <!-- TODO: hacer que se mapeen las opciones como las de los comites en el plugin -->
+      <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/" id="programa_1">
+      <td style="vertical-align: top;padding-top: 15px; width:30%; padding-right: 2%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Interesado en:</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td>
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona el tipo de programa que más te interesa">
+        <select id="interested_in" name="interested_in" title="Selecciona el tipo de programa que más te interesa."  style="margin-bottom: 20px;  border:1px solid #037Ef3; width: 95%;border-radius: 5px;"  >
+        
+                  <option value="2" style="background-color:#fff;">GT</option>
+             <!--    <option value="ogt" style="background-color: #fff;">Talento Global</option> 
+                 <option value="ogt-GE" style="background-color: #fff;">Emprendedor Global</option> -->
+        </select>
+        </label>
+      </td>
+    </tr>
+ 
+     <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%; padding-right: 2%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Universidad</h6>  <span class="required" style="color:#FFF !important;">*</span></td>
+      <td>
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Selecciona una de nuestras universidades o estados">
+        <select id="university" name="university" title="Universidad"  style="border:1px solid #037Ef3; width: 95%;border-radius: 5px; margin-bottom: 15px;"  >
+            {leads-option-list}
+        </select>
+      </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+      <td style="vertical-align: top;padding-top: 15px; width:30%;padding-right: 5%;margin-bottom: 20px; text-align: right;"  class="input-name"><h6 id="lc_label" style="color:#FFF !important;font-weight:normal; display:inline;font-style:inherit;">Entidad Local</h6>  </td>
+      <td style="width:66%;">
+      <label  data-toggle="tooltip" style="color:#FFF;" data-placement="top" title="Entidad local más cercana que te brindará apoyo durante tu proceso">
+      <input class="readonly"  style="margin-bottom: 20px;  border:1px solid #037Ef3; height: 30px; width: 95%;border-radius: 5px;"   id="localcommittee" name="localcommittee" title="Nombre de la entidad local más cercana." type="text" readonly />
+      </label>
+      </td>
+    </tr>
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+<td></td>
+    <td class="check-holder" colspan="1">
+   
+  <input checked="" id="terms" type="checkbox" style="display: inline;"><label for="terms" style="display: inline;">
+  <span class="required" style="display: inline;color:#fff !important">
+  He leido y acepto los
+  <a href="https://opportunities.aiesec.org/assets/terms.pdf" target="_blank" style="color: #00f9f6;"> terminos y condiciones.</a>
+  </span>
+  </label>
+  </td>
+  </tr>
+  <tr style="background: transparent;"><td style="background: transparent;"> </td></tr>
+  
+    <tr style="background: transparent;/*background: rgba(255,255,255,0.4) !important;*/">
+              <input type="hidden" name="website_url" value="{website_url}">
+        </table>
+      <div id="error" class="error" style="display:none;"><p></p></div>
+   
+      <div id="submit" style="padding:0px;background: transparent;text-align:center;">
+    
+   
+<input type="submit" id="submit_button" name="submit" clicked="false" class="send" value="Regístrate" style="width: 50%; margin: 6px 0px; padding: 16px; background: #037ff3;border-radius: 5px;">
+      </div>
+  </form>
+ </div>
+  <script>
+ $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<script type='text/javascript' src='{path-gis_lcMapper}'></script>
+<script type='text/javascript'>
+//var $j = jQuery.noConflict();
+jQuery(document).ready(function($){
+    var myJsonString = getLeads('{path-leads-json}');
+
+jQuery('#localcommittee').hide();
+jQuery('#lc_label').hide();
+jQuery('#programa_1').hide();
+
+    //jQuery(".regform").validationEngine();
+    jQuery('#university').change(function($) {
+    //    $('#localcommittee').val((mapLC($('#university').val())));
+        jQuery('#localcommittee').val(mapLC(jQuery('#university').val()));
+        jQuery('#localcommittee').show('slow');
+        jQuery('#lc_label').show('slow');
+
+    });
+   
+    jQuery('#submit_button').click(function($){
+        jQuery('#submit_button').attr('clicked', 'true');
+ 
+    });
+});
+</script>
+
+
+</body>

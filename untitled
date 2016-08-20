@@ -1,0 +1,28 @@
+<?php
+////////////////GET RESPONSE 
+/**
+*FOR GET RESPONSE 
+*
+*
+*/
+
+
+
+//AUTHENTICATION
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,"https://api.getresponse.com/v3/accounts");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'X-Auth-Token: api-key edd91283845856ad6863a3ee76a421c9'
+    ));
+
+echo curl_exec ($ch);
+
+curl_close ($ch);
+//AUTHENTICATION
+
+?>
