@@ -11,7 +11,7 @@ return array(
     'source' => 'Dónde te enteraste',
     'lead-name' => 'Selecciona tu universidad o estado',
     'lc' => 'Entidad Local',
-    'thank-you-message' => 'Muchas gracias por tu registro, pronto recibiras un correo electónico. E inicia sesion en nuestra  <a href="https://opportunities.aiesec.org/" target="_blank"> plataforma.</a>',
+    'thank-you-message' => 'Muchas gracias por tu registro, pronto recibiras un correo electónico.',
     'country_name' => 'Mexico',
     'mc_id' => '1589'
 );

@@ -1,5 +1,5 @@
 /*
-Plugin Name: AIESEC EXPA Registration 
+Plugin Name: COP REG
 Description: Plugin based on gis_curl_registration script by Dan Laush upgraded to Wordpress plugin
 Version: 0.2
 Author: Enrique Suarez
